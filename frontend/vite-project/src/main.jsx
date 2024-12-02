@@ -2,14 +2,14 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
-import { GlobalStateProvider } from './CheckLoggedIn.jsx'
 
+import CheckLoggedIn  from './components/CheckLoggedIn.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
    
-   <GlobalStateProvider>
+  <CheckLoggedIn>
     <App />
-    </GlobalStateProvider>
+    </CheckLoggedIn>
   </StrictMode>,
 
 )

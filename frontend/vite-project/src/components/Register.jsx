@@ -67,9 +67,14 @@ console.log(formData)
 <div>Confirm Password</div>
 <input placeholder='Confirm your password here' className='border-2 p-2 rounded-md border-gray-400'></input>
 
-<div className='flex w-full justify-center'>
-<button  onClick={HandleSubmit} className="hover:bg-dark-blue hover:text-zinc-50 bg-blue w-24 h-10 rounded-md">Create</button></div>
+<div className='flex w-full justify-center flex flex-col'>
+<button  onClick={HandleSubmit} className="hover:bg-dark-blue hover:text-zinc-50 bg-blue w-24 h-10 rounded-md">Create</button>
+<div>
+<a className='hover:text-blue hover:underline 'onClick={()=>navigate('/register')}>New to Blogy? Sign up here</a></div>
 </div>
+</div>
+
+
 
 
   </div>

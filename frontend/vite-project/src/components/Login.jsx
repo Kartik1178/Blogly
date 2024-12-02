@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react'
 import { useState,useContext } from 'react'
-import { CheckLoggedIn } from '../CheckLoggedIn'
+
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import  LoggedInContext  from './CheckLoggedIn';
+
 const Login = () => {
-const {setLoggedIn}=useContext(CheckLoggedIn);
+
   
   const navigate=useNavigate();
 const [LoginForm,setLoginForm]=useState(
@@ -26,14 +28,19 @@ headers:{
 withCredentials: true
 }
 )
-if(response.status===200){
-setLoggedIn(true);
+if(response.status==200){
+
 console.log(response.data.token)
 localStorage.setItem('token', response.data.token);
+
 navigate('/')}
+else{
+  alert('Please Enter valid credentials')
+}
+
 }catch(err){
   console.log(err)
-  alert('Please Enter valid credentials')
+ 
 }}
   useEffect(()=>{
 console.log(LoginForm)

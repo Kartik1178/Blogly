@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+import {  LoggedInContext } from './CheckLoggedIn';
+
 
 export const MyProfile = () => {
+  const {setisLoggedIn}=useContext(LoggedInContext);
   const navigate = useNavigate();
     const [Vvalue,setValue]=useState({
 "firstname":"", 
@@ -18,6 +21,7 @@ const logout = async () => {
    
     await axios.post('http://localhost:5000/users/logout', {}, { withCredentials: true });
     navigate('/register');
+    setisLoggedIn(false);
   } catch (error) {
     console.error('Logout failed', error);
   }

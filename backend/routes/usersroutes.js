@@ -111,6 +111,15 @@ catch(err){
     console.log(err)
 }
 });
+router.get('/checkfortoken',(req,res)=>{
+if(req.cookies.token){
+  res.status(200).json({message:"Token Found"});
 
+}
+else{
+  res.status(401).json({message:"Token not found"});
+}
+
+});
 
 export default router;
