@@ -8,7 +8,6 @@ const PostList = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const token = localStorage.getItem('token');
       try {
         const response = await axios.get('http://localhost:5000/posts/myposts', {
         withCredentials:true,
@@ -16,6 +15,7 @@ const PostList = () => {
         
         });
         setPosts(response.data);
+        console.log(posts);
       } catch (error) {
         console.error(error);
       }

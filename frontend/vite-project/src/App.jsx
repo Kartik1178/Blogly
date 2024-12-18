@@ -22,7 +22,7 @@ const App = () => {
           <div className="nav-links flex flex-row justify-evenly w-full items-center">
           <div className='flex flex-row ml-0 ju\'>
          <div className='mr-2'>
-          <a href="/" className='flex flex-row'>Create Post</a> </div>
+          <a href="/new-post" className='flex flex-row'>Create Post</a> </div>
          <div className='mr-2'>
           <a href="/myposts">My Posts</a></div>
          <div>

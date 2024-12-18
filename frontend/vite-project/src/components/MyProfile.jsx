@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
-import {  LoggedInContext } from './CheckLoggedIn';
+import CheckLoggedIn,{  LoggedInContext } from './CheckLoggedIn';
 
 
 export const MyProfile = () => {
@@ -20,8 +20,9 @@ const logout = async () => {
   try {
    
     await axios.post('http://localhost:5000/users/logout', {}, { withCredentials: true });
-    navigate('/register');
     setisLoggedIn(false);
+    navigate('/register');
+ 
   } catch (error) {
     console.error('Logout failed', error);
   }

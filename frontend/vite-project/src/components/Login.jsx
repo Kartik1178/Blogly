@@ -3,11 +3,12 @@ import { useState,useContext } from 'react'
 
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import  LoggedInContext  from './CheckLoggedIn';
+import { LoggedInContext } from "./CheckLoggedIn";
+
 
 const Login = () => {
 
-  
+  const {setisLoggedIn}=useContext(LoggedInContext);
   const navigate=useNavigate();
 const [LoginForm,setLoginForm]=useState(
  {"email":'',
@@ -32,7 +33,9 @@ if(response.status==200){
 
 console.log(response.data.token)
 localStorage.setItem('token', response.data.token);
+setisLoggedIn(true);
 
+  localStorage.setItem("isLoggedIn", "true");
 navigate('/')}
 else{
   alert('Please Enter valid credentials')

@@ -9,26 +9,11 @@ export const LoggedInContext=createContext();
     return document.cookie.split("; ").find(row => row.startsWith("token="));
   };
 
-  const [isLoggedIn,setisLoggedIn]=useState(false);
-  useEffect(()=>{
-axios.get("http://localhost:5000/users/checkfortoken",{withCredentials:true}).then(reponse=>{
-if(reponse.status==200){
-setisLoggedIn(true);
-console.log(isLoggedIn);
-}
-else{
-    setisLoggedIn(false);
-}
-console.log(isLoggedIn);
-}) .catch(error=>{
-  setisLoggedIn(false);
-  console.log(error);
-}
-)
-
-
-  },[]);
-
+  const [isLoggedIn,setisLoggedIn]=useState(localStorage.getItem("isLoggedIn")==="true");
+  useEffect(() => {
+  
+    localStorage.setItem("isLoggedIn", isLoggedIn);
+  }, [isLoggedIn]);
   
     return (
    <LoggedInContext.Provider value={{isLoggedIn,setisLoggedIn}}>
