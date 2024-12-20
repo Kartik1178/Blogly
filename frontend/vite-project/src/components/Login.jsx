@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 import { useState,useContext } from 'react'
-
+import { CheckLoggedIn } from '../CheckLoggedIn'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 const Login = () => {
-const [isLoggedIn,setLoggedIn]=useState(false)
+const {setLoggedIn}=useContext(CheckLoggedIn);
   
   const navigate=useNavigate();
 const [LoginForm,setLoginForm]=useState(
@@ -27,7 +27,7 @@ withCredentials: true
 }
 )
 if(response.status===200){
-setLoggedIn(true)
+setLoggedIn(true);
 console.log(response.data.token)
 localStorage.setItem('token', response.data.token);
 navigate('/')}

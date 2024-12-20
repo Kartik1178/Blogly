@@ -23,7 +23,7 @@ router.post('/create', auth, async (req, res) => {
 router.get('/myposts',auth,async(req,res)=>{
 try{
 const Author=req.user.id;
-const AuthorPosts=await Post.find({author:Author});
+const AuthorPosts=await Post.find({author:Author}).populate('author','firstname lastname email');
 
 res.status(200).json(AuthorPosts);
 }
@@ -34,7 +34,7 @@ catch(err){
 
 router.get('/findpost', async (req, res) => {
   try {
-    const posts = await Post.find().populate('author', 'email');
+    const posts = await Post.find().populate('author', 'firstname,lastname,email');
     res.status(200).json(posts);
   } catch (err) {
     res.status(500).json({ message: err.message });

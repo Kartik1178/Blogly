@@ -11,9 +11,9 @@ const PostList = () => {
       const token = localStorage.getItem('token');
       try {
         const response = await axios.get('http://localhost:5000/posts/myposts', {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+        withCredentials:true,
+
+        
         });
         setPosts(response.data);
       } catch (error) {

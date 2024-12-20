@@ -1,10 +1,9 @@
 
 
-
+import cookieParser from 'cookie-parser';
 import express from 'express'; 
 import dotenv from 'dotenv';
 import cors from 'cors';
-import cookieParser from 'cookie-parser';
 import { connect } from './db.js';
 
 import postroutes from './routes/postroutes.js';
