@@ -8,9 +8,10 @@ const router = express.Router();
 
 router.post('/create', auth, async (req, res) => {
   try {
-    const { title, content } = req.body;
+    const { title,description, content } = req.body;
     const post = await Post.create({
       title,
+      description,
       content,
       author: req.user.id, 
     });

@@ -16,29 +16,28 @@ const App = () => {
     <Router>
       <div className="App">
         {isLoggedIn?(
-        <nav className='lg:p-10 p-5 lg:h-40 h-24'>
-          
-          
-          <div className="nav-links flex flex-row justify-evenly w-full items-center">
-          <div className='flex flex-row ml-0 ju\'>
-         <div className='mr-2'>
-          <a href="/new-post" className='flex flex-row'>Create Post</a> </div>
-         <div className='mr-2'>
-          <a href="/myposts">My Posts</a></div>
-         <div>
-          <a href="/explore">Explore</a></div></div>
-          <a href="/" className='lg:text-6xl text-4xl font-semibold'>Blogly</a>
-            <div className='flex flex-row'>
-            <div class="mr-3">
-              <a href="/profile">My Profile</a>
-              </div>
-              <div>
-              <a href="/logout">Logout</a>
-              </div>
-           
-            </div>
-          </div>
-        </nav>):(
+ <nav className="bg-gray-900 text-white p-4 w-full flex justify-between items-center shadow-md">
+ <div className="text-3xl font-bold tracking-wide text-green-400 hover:text-green-300 transition-all duration-300 cursor-pointer">
+   <a href="/">Blogly</a>
+ </div>
+ <div className="flex space-x-6">
+   <a href="/new-post" className="px-4 py-2 rounded-md border border-green-500 hover:bg-green-500 transition-all duration-300">
+     Create Post
+   </a>
+   <a href="/myposts" className="px-4 py-2 rounded-md border border-green-500 hover:bg-green-500 transition-all duration-300">
+     My Posts
+   </a>
+   <a href="/explore" className="px-4 py-2 rounded-md border border-green-500 hover:bg-green-500 transition-all duration-300">
+     Explore
+   </a>
+   <a href="/profile" className="px-4 py-2 rounded-md border border-green-500 hover:bg-green-500 transition-all duration-300">
+     My Profile
+   </a>
+   <a href="/logout" className="px-4 py-2 rounded-md bg-red-500 hover:bg-red-600 transition-all duration-300">
+     Logout
+   </a>
+ </div>
+</nav>):(
               <nav className="bg-gray-900 text-white p-4 w-full flex justify-between items-center shadow-md flex">
               <div className="text-3xl font-bold tracking-wide text-green-400 hover:text-green-300 transition-all duration-300 cursor-pointer">
                 <a href="/">Blogly</a>

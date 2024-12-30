@@ -23,14 +23,17 @@ const PostList = () => {
     fetchPosts();
   }, []);
 
-  return (
-    <div className="post-list">
-      <h2 >Blog Posts</h2>
+  return (<>
+  <div className=' bg-gray-900 w-screen h-screen p-3'>
+     <h2 className=' font-bold text-xl text-white' >Blog Posts</h2>
+    <div className="w-screen flex flex-row">
+     
       {posts.map((post) => (
         <Post key={post._id} post={post} />
       ))}
     </div>
-  );
+    </div>
+    </> );
 };
 
 export default PostList;
