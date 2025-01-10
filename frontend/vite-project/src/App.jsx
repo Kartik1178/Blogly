@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Register from './components/Register';
 import Login from './components/Login';
+import PostDetail from './PostDetail';
 import PostList from './components/PostList';
 import { LoggedInContext } from './components/CheckLoggedIn';
 import './App.css';
@@ -61,12 +62,13 @@ const App = () => {
         )}
         <Routes>
         <Route path="/profile" element={isLoggedIn === false ? <Navigate to="/login" /> : <MyProfile />} />
-
+        <Route path="/posts/:id" element={<PostDetail/>} />
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<LandingPage/>} />
           <Route path="/myposts" element={<PostList />} />
           <Route path="/new-post" element={isLoggedIn===true?<CreatePost/>:<Navigate to="/register"/>} />
           <Route path="/login" element={<Login/>}/>
+       
         </Routes>
       </div>
     </Router>
