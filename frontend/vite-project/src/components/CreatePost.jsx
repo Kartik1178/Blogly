@@ -27,7 +27,7 @@ const CreatePost = () => {
         { title, description, content },
         { withCredentials: true }
       );
-      navigate("/my-posts");
+      navigate("/myposts");
     } catch (error) {
       setError("Failed to create post. Please try again.");
       console.error("Error creating post:", error);
