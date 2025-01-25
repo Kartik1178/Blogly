@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Post from './Post';
-
+import { useContext } from 'react';
 const PostList = () => {
   const [posts, setPosts] = useState([]);
 
