@@ -7,6 +7,7 @@ import PostDetail from './PostDetail';
 import PostList from './components/PostList';
 import { LoggedInContext } from './components/CheckLoggedIn';
 import './App.css';
+import BlogList from './components/Explore';
 import LandingPage from './components/LandingPage';
 import { MyProfile } from './components/MyProfile';
 import CreatePost from './components/CreatePost';
@@ -65,6 +66,7 @@ const App = () => {
         <Route path="/posts/:id" element={<PostDetail/>} />
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<LandingPage/>} />
+          <Route path="/explore" element={<BlogList/>} />
           <Route path="/myposts" element={<PostList />} />
           <Route path="/new-post" element={isLoggedIn===true?<CreatePost/>:<Navigate to="/register"/>} />
           <Route path="/login" element={<Login/>}/>

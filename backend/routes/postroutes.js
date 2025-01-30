@@ -21,6 +21,13 @@ router.post('/create', auth, async (req, res) => {
   
   }
 });
+router.get('/allposts', async (req, res) => {
+  try {
+    const posts = await Post.find().populate('author', 'firstname lastname email'); // Fixed projection issue
+    res.status(200).json(posts);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }});
 router.get('/myposts',auth,async(req,res)=>{
 try{
 const Author=req.user.id;
@@ -35,7 +42,7 @@ catch(err){
 
 router.get('/findpost', async (req, res) => {
   try {
-    const posts = await Post.find().populate('author', 'firstname,lastname,email');
+    const posts = await Post.find().populate('author', 'firstname lastname email');
     res.status(200).json(posts);
   } catch (err) {
     res.status(500).json({ message: err.message });
